@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+  },
+  "name": "elb",
+  "maintainer_email": "jesse@websterclay.com",
+  "attributes": {
+  },
+  "license": "Apache 2.0",
+  "suggestions": {
+  },
+  "platforms": {
+  },
+  "maintainer": "Jesse Newland",
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES: \n\n= USAGE:\n\n",
+  "version": "0.1.0",
+  "recommendations": {
+  },
+  "recipes": {
+  },
+  "groupings": {
+  },
+  "conflicting": {
+  },
+  "replacing": {
+  },
+  "description": "Configure Elastic Load Balancers at AWS",
+  "providing": {
+  }
+}
