@@ -17,6 +17,18 @@
 # limitations under the License.
 #
 
+# fog deps
+%w(
+  libxml2
+  libxml2-dev
+  libxslt1-dev
+).each do |pkg|
+  r = package pkg do
+    action :nothing
+  end
+  r.run_action(:install)
+end
+
 r = gem_package "fog" do
   action :nothing
 end
