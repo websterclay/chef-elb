@@ -9,7 +9,7 @@ Installation
 The easiest way to install this is to use [knife-github-cookbooks](https://github.com/websterclay/knife-github-cookbooks):
 
     gem install knife-github-cookbooks
-    knife github cookbook install websterclay/chef-elb
+    knife cookbook github install websterclay/chef-elb
 
 Usage
 -----
