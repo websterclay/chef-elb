@@ -9,3 +9,4 @@ attribute :listeners,             :kind_of => Array,  :default => [{"InstancePor
 attribute :instances,             :kind_of => Array
 attribute :search_query,          :kind_of => String
 attribute :timeout,                                   :default => 60
+attribute :retries,               :kind_of => Integer, :default => 20

@@ -37,6 +37,8 @@ end
 
 action :create do
   ruby_block "Create ELB #{new_resource.lb_name}" do
+    retries     new_resource.retries
+    retry_delay 10
     block do
       elb.create_load_balancer(new_resource.availability_zones, new_resource.lb_name, new_resource.listeners)
       data = nil
@@ -48,6 +50,7 @@ action :create do
             sleep 3
           end
         end
+      rescue Fog::AWS::IAM::NotFound
       rescue Timeout::Error
         raise "Timed out waiting for ELB data after #{new_resource.timeout} seconds"
       end
