@@ -67,6 +67,21 @@ action :create do
   end
   new_resource.updated_by_last_action(true)
 
+  configure_successful = false
+  ruby_block "Configure ELB #{new_resource.lb_name}" do
+    block do
+      response = elb.configure_health_check(new_resource.lb_name, new_resource.health_check.first)
+      if response.status != 200
+        Chef::Log::fatal!("Configuring load balancer health check returned " << response.status.to_s)
+      else
+        Chef::Log::debug("Configure load balancer health check succeeded: \n" << response.body.to_s)
+        configure_successful = true
+      end
+    end
+    action :create
+  end
+  new_resource.updated_by_last_action(configure_successful)
+
   instances_to_add = new_resource.instances - current_resource.instances
   instances_to_delete = current_resource.instances - new_resource.instances
 
