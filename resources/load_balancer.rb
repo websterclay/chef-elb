@@ -9,3 +9,4 @@ attribute :listeners,             :kind_of => Array,  :default => [{"InstancePor
 attribute :instances,             :kind_of => Array
 attribute :search_query,          :kind_of => String
 attribute :timeout,                                   :default => 60
+attribute :health_check,          :kind_of => Array, :default => [{"HealthyThreshold" => 10, "Interval" => 30, "Target" => "HTTP:80/", "Timeout" => 5, "UnhealthyThreshold" => 2}]
